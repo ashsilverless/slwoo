@@ -1,0 +1,9 @@
+$verticalSpacing: 5rem;
+
+.vertical-spacing {
+  margin-bottom: $verticalSpacing;
+
+  @include respond(big-desktop) {
+    margin-bottom: $verticalSpacing * 1.2;
+  }
+}

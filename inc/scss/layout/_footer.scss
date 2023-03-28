@@ -1,0 +1,63 @@
+footer {
+  position: relative;
+  padding-top:2rem;
+  overflow: hidden;
+  border-top: 1px solid $color-grey-dark;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 4rem;
+    width: 100vw;
+    height: 100vw;
+    background-image: url('inc/img/leopard.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: .1;
+  }
+
+  p {
+    font-size: $default-font-size * .8;
+
+    &:not(:last-child) {
+      margin-bottom: .5em;
+    }
+  }
+
+  
+  .lower-panel {
+    position: relative;
+    padding: 5rem 0;
+
+    .logo {
+      margin-bottom: 3rem;
+      ;
+    }
+
+    .menu-item {
+      text-transform: uppercase;
+    }
+
+  }
+
+
+  .socket {
+    border-top: 1px solid $color-grey-light;
+    padding: 1rem 0;
+  }
+
+  .socials {
+    text-align: center;
+    .heading {
+      margin-bottom: 2rem;
+    }
+    i {
+      display:inline-block;
+      font-size: $default-font-size * 2;
+      margin:0 .5rem;
+    }
+  }
+
+}

@@ -1,0 +1,152 @@
+body {
+  font-family: $default-font-style;
+  font-size: $default-font-size;
+  line-height: 1.7;
+  color: $color-text;
+}
+
+.heading {
+  //font-family: $default-header-style;
+  font-weight: 300;
+  line-height: 1;
+  text-transform: uppercase;
+
+  &__xl {
+    font-size: 6rem;
+    text-transform: uppercase;
+    color:white;
+    line-height: 1.2;
+  }
+
+  &__lg {
+    font-size: $default-font-size * 3.1;
+    font-weight: 400;
+  }
+
+  &__med {
+    font-size: $default-font-size * 2;
+    font-weight: 400;
+  }
+
+  &__sm {
+    font-size: $default-font-size * 1.2;
+    font-weight: 400;
+  }
+
+  &__xs {
+    font-size: $default-font-size * 1;
+    font-weight: 400;
+  }
+
+  &__alt {
+    font-family: $alt-font-header;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  &__center {
+    text-align: center;
+  }
+
+  @include respond(phone) {}
+
+  &__primary {
+    font-family: $default-font-style;
+    color: $color-primary;
+  }
+
+  &__light {
+    color: white;
+  }
+
+  &__uppercase {
+    text-transform: uppercase;
+  }
+
+  &__unset-case {
+    text-transform: unset;
+  }
+
+  &+p {
+    margin-top: 1em;
+    ;
+  }
+  &__separator {
+    text-align: center;
+    font-size: 2rem;
+    border-bottom: 1px solid $color-grey-light;
+    padding-bottom: 1rem;
+    margin-bottom: 3rem;
+  }
+}
+
+p a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: $color-primary;
+
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+    height: 1px;
+    width: calc(100% + 2px);
+    z-index: -1;
+    background: $color-primary;
+    transition: .3s height ease;
+  }
+
+  &:hover {
+    color: $color-black;
+
+    &:before {
+      height: 100%;
+    }
+  }
+
+
+}
+
+.paragraph,
+p,
+ul {
+  font-size: $default-font-size;
+  font-weight: 300;
+  ;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &.small {
+    font-size: $default-font-size * .8;
+  }
+}
+
+blockquote {
+  font-family: $default-font-style;
+  font-size: 5rem;
+}
+
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.breadcrumb a {
+  color: $color-primary;
+}
+
+article {
+  text-align: left;
+}
+
+.alt-font {
+  font-family: $alt-font-header;
+}

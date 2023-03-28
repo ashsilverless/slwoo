@@ -1,0 +1,23 @@
+.pagination {
+    margin-bottom: 2rem;
+
+    .pagination__inner {
+        .page-numbers {
+            display: inline-block;
+            text-decoration: none;
+            background-color: $color-grey-light;
+            color: white;
+            padding: .25rem 1rem;
+            transition: .3s all ease;
+            color: white;
+
+            &.current {
+                background-color: $color-grey-mid;
+            }
+
+            &:hover {
+                background-color: darken($color-grey-light, 20%);
+            }
+        }
+    }
+}

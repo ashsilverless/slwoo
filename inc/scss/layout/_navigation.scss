@@ -1,0 +1,266 @@
+.sidebar {
+  height: 100%;
+  width: 100vw;
+  max-width: 400px;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  right: 0;
+  background-color: $color-primary;
+}
+
+.bar {
+  display: block;
+  height: 3px;
+  width: 30px;
+  background-color: $color-black;
+  margin: 5px auto;
+}
+
+.navbutton {
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
+  margin: 0 auto;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+.nav-right {
+  position: fixed;
+  right: 3rem;
+  top: 2rem;
+  display: none;
+
+  @include respond(tab-port) {
+    display: block;
+  }
+}
+
+.nav-right.visible-xs {
+  z-index: 3;
+}
+
+.hidden-xs {
+  display: none;
+}
+
+.middle {
+  margin: 0 auto;
+}
+
+.bar {
+  transition: all 0.7s ease;
+}
+
+.nav-right.visible-xs .active .bar {
+  background-color: #fff;
+  transition: all 0.7s ease;
+}
+
+.navbutton.active .top {
+  transform: translateY(7px) rotateZ(45deg);
+}
+
+.navbutton.active .bottom {
+  transform: translateY(-9px) rotateZ(-45deg);
+}
+
+.navbutton.active .middle {
+  width: 0;
+}
+
+.move-to-left {
+  transform: translateX(-400px);
+  transition: all 0.5s;
+}
+
+// nav {
+//   padding-top: 30px;
+// }
+
+.ua {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+}
+
+.fa {
+  font-size: 1.4em;
+  color: #ef8354;
+  transition: all 1s ease;
+}
+
+.ua:hover .fa {
+  color: #fff;
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  -o-transform: scale(1.3);
+  transform: scale(1.3);
+  transition: all 1s ease;
+}
+
+@media (min-width: 480px) {
+  .nav-list {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-right {
+    position: absolute;
+  }
+
+  // .hidden-xs {
+  //   display: block;
+  // }
+  .visible-xs {
+    // display: none;
+  }
+}
+
+.down_arrow {
+  text-align: center;
+
+  @include respond(tab-port) {
+    padding-top: 5rem;
+  }
+
+  a {
+    text-decoration: none;
+
+  }
+
+  .arrow {
+    text-align: center;
+    margin: 1% 0;
+  }
+
+  .bounce {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+
+    40% {
+      transform: translateY(-30px);
+    }
+
+    60% {
+      transform: translateY(-15px);
+    }
+  }
+}
+
+menu {
+  display: flex;
+
+  ul {
+    display: flex;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      //border-left: 1px solid $color-grey-mid;
+
+      a {
+        position: relative;
+        display: block;
+        padding: 1rem 2rem;
+        text-transform: uppercase;
+        font-size: $default-font-size * .8;
+        letter-spacing: .05rem;
+        color: $color-grey-dark;
+        text-decoration: none;
+        transition: .3s all ease;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 10px;
+          right: 0;
+          width: 1px;
+          height: calc(100% - 20px);
+          background-color: $color-grey-mid;
+        }
+
+        &:hover {
+          background-color: white;
+        }
+      }
+
+      &:last-of-type a:after {
+        display: none;
+        ;
+      }
+    }
+  }
+
+  .dropdown {
+    position: relative;
+
+    a {
+      padding-right: 4rem;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: $chevronOffset;
+      background: url('inc/img/chevron.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: .75rem;
+      height: 100%;
+      transform: rotate(90deg);
+      filter: brightness(0.5);
+    }
+
+    .sub-menu {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem 0 0;
+      transition: .5s all ease;
+      transform: scaleY(0);
+      transform-origin: top;
+      background-color: rgba(255, 255, 255, 0.75);
+      //border-right: 1px solid transparent;
+
+      li {
+        display: block;
+        border: none;
+      }
+    }
+
+    &.active {
+      .sub-menu {
+        transform: scaleY(1);
+      }
+    }
+  }
+
+  @include respond(tab-port) {}
+}
