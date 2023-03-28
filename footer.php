@@ -11,7 +11,7 @@
 
 <footer>
     <div class="row">
-        Terms & Conditions
+        Terms & Conditionfdfffs
     </div>
 </footer>
 
