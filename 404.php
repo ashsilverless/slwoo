@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying 404 pages
- *
+ * This is the change
  * @package silverless_ecom
  */
 
@@ -26,11 +26,14 @@ get_header();
 </div>
 <?php } ?>
 <script>
-    document.getElementById("goto-itin").onclick = function () { findItinerary() };
-    function findItinerary() {
-        var url = '/your-safari/' + document.getElementById('unique_id').value;
-        window.location.href = url;
-    }
+document.getElementById("goto-itin").onclick = function() {
+    findItinerary()
+};
+
+function findItinerary() {
+    var url = '/your-safari/' + document.getElementById('unique_id').value;
+    window.location.href = url;
+}
 </script>
 
 <?php
