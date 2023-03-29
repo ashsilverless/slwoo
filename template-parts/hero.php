@@ -14,7 +14,7 @@
 
 <div class="hero <?php echo $heroSize; ?>" style="background-image: url(<?php echo $heroImage['url']; ?>);">
 
-    <div class="row grid-layout2 ">jibber jabber
+    <div class="row grid-layout2 ">
         <div class="hero__heading">
             <h2 class="heading heading__sm heading__alt date">
             </h2>

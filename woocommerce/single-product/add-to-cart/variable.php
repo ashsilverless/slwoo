@@ -12,7 +12,7 @@
  *
  * @see https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.5.5
+ * @version 6.1.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -25,19 +25,26 @@ $variations_attr = function_exists( 'wc_esc_json' ) ? wc_esc_json( $variations_j
 
 do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-<form class="variations_form cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>" data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. ?>">
-	<?php do_action( 'woocommerce_before_variations_form' ); ?>
+<form class="variations_form cart"
+    action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>"
+    method="post" enctype='multipart/form-data' data-product_id="<?php echo absint( $product->get_id() ); ?>"
+    data-product_variations="<?php echo $variations_attr; // WPCS: XSS ok. ?>">
+    <?php do_action( 'woocommerce_before_variations_form' ); ?>
 
-	<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
-		<p class="stock out-of-stock"><?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?></p>
-	<?php else : ?>
-		<div class="variations" cellspacing="0">
-			
-				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
-					<div>
-						<div class="label"><label for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label></div>
-						<div class="value">
-							<?php
+    <?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
+    <p class="stock out-of-stock">
+        <?php echo esc_html( apply_filters( 'woocommerce_out_of_stock_message', __( 'This product is currently out of stock and unavailable.', 'woocommerce' ) ) ); ?>
+    </p>
+    <?php else : ?>
+    <div class="variations" cellspacing="0">
+
+        <?php foreach ( $attributes as $attribute_name => $options ) : ?>
+        <div>
+            <div class="label"><label
+                    for="<?php echo esc_attr( sanitize_title( $attribute_name ) ); ?>"><?php echo wc_attribute_label( $attribute_name ); // WPCS: XSS ok. ?></label>
+            </div>
+            <div class="value">
+                <?php
 								wc_dropdown_variation_attribute_options( array(
 									'options'   => $options,
 									'attribute' => $attribute_name,
@@ -45,14 +52,14 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 								) );
 								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#"><i class="fa-solid fa-ban"></i> ' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
 							?>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			</tbody>
-		</div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+        </tbody>
+    </div>
 
-		<div class="single_variation_wrap">
-			<?php
+    <div class="single_variation_wrap">
+        <?php
 				/**
 				 * Hook: woocommerce_before_single_variation.
 				 */
@@ -72,10 +79,10 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				 */
 				do_action( 'woocommerce_after_single_variation' );
 			?>
-		</div>
-	<?php endif; ?>
+    </div>
+    <?php endif; ?>
 
-	<?php do_action( 'woocommerce_after_variations_form' ); ?>
+    <?php do_action( 'woocommerce_after_variations_form' ); ?>
 </form>
 
 <?php
