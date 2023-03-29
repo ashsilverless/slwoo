@@ -1,3 +1,15 @@
+/*
+Theme Name: Silverless WooCommerce
+Theme URI: https://silverless.co.uk
+Author: Silverless
+Author URI: https://silverless.co.uk
+Description: Our default theme for WooCommerce websites
+Version: 1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: silverlesswoo
+*/
+
 @import "abstracts/functions";
 @import "abstracts/mixins";
 @import "abstracts/variables";
@@ -45,4 +57,4 @@
 */
 
 @import "vendor/vendor";
-@import "vendor/woocommerce"; 
+@import "vendor/woocommerce";
