@@ -6,5 +6,5 @@
  * @package silverless_ecom
  */
 get_header(); ?>
-INDEX
+INDEX TEST
 <?php get_footer(); ?>
